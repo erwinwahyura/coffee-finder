@@ -146,18 +146,24 @@ if (!('webkitSpeechRecognition' in window)) {
   recognition.onresult = function(event) {
     var interim_transcript = '';
     for (var i = event.resultIndex; i < event.results.length; ++i) {
-      if (event.results[i].isFinal) {
+      var transcript = event.results[i][0].transcript;
+
+      if (transcript.toLowerCase() == " cari") {
+        alert('hi')
+      } else if (event.results[i].isFinal) {
         final_transcript += event.results[i][0].transcript;
+        console.log('hai', final_transcript);
       } else {
         interim_transcript += event.results[i][0].transcript;
+        console.log('hai interm', interim_transcript);
       }
     }
     final_transcript = capitalize(final_transcript);
     final_span.innerHTML = linebreak(final_transcript);
     interim_span.innerHTML = linebreak(interim_transcript);
-    if (final_transcript || interim_transcript) {
-      showButtons('inline-block');
-    }
+    // if (final_transcript || interim_transcript) {
+    //   showButtons('inline-block');
+    // }
   };
 }
 
@@ -187,28 +193,28 @@ function createEmail() {
   window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
 }
 
-function copyButton() {
-  if (recognizing) {
-    recognizing = false;
-    recognition.stop();
-  }
-  copy_button.style.display = 'none';
-  copy_info.style.display = 'inline-block';
-  showInfo('');
-}
-
-function emailButton() {
-  if (recognizing) {
-    create_email = true;
-    recognizing = false;
-    recognition.stop();
-  } else {
-    createEmail();
-  }
-  email_button.style.display = 'none';
-  email_info.style.display = 'inline-block';
-  showInfo('');
-}
+// function copyButton() {
+//   if (recognizing) {
+//     recognizing = false;
+//     recognition.stop();
+//   }
+//   copy_button.style.display = 'none';
+//   copy_info.style.display = 'inline-block';
+//   showInfo('');
+// }
+//
+// function emailButton() {
+//   if (recognizing) {
+//     create_email = true;
+//     recognizing = false;
+//     recognition.stop();
+//   } else {
+//     createEmail();
+//   }
+//   email_button.style.display = 'none';
+//   email_info.style.display = 'inline-block';
+//   showInfo('');
+// }
 
 function startButton(event) {
   if (recognizing) {
@@ -223,7 +229,7 @@ function startButton(event) {
   interim_span.innerHTML = '';
   start_img.src = '/img/mic-slash.gif';
   showInfo('info_allow');
-  showButtons('none');
+  // showButtons('none');
   start_timestamp = event.timeStamp;
 }
 
@@ -240,14 +246,14 @@ function showInfo(s) {
   }
 }
 
-var current_style;
-function showButtons(style) {
-  if (style == current_style) {
-    return;
-  }
-  current_style = style;
-  copy_button.style.display = style;
-  email_button.style.display = style;
-  copy_info.style.display = 'none';
-  email_info.style.display = 'none';
-}
+// var current_style;
+// function showButtons(style) {
+//   if (style == current_style) {
+//     return;
+//   }
+//   current_style = style;
+//   copy_button.style.display = style;
+//   email_button.style.display = style;
+//   copy_info.style.display = 'none';
+//   email_info.style.display = 'none';
+// }

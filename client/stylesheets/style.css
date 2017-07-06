@@ -68,7 +68,7 @@ a:hover {
   border: 1px solid #ddd;
   padding: 15px;
   text-align: left;
-  min-height: 150px;
+  /*min-height: 150px;*/
 }
 #start_button {
   border: 0;
