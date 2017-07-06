@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- <el-button @click="visible = true">Button</el-button>
+    <el-dialog v-model="visible" title="Hello world">
+      <p>Try Element</p>
+    </el-dialog> -->
+
+    <!-- NAV -->
+    <div class="line"></div>
+    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-menu-item index="1">Home</el-menu-item>
+      <el-submenu index="2">
+        <template slot="title">Workspace</template>
+        <el-menu-item index="2-1">item one</el-menu-item>
+        <el-menu-item index="2-2">item two</el-menu-item>
+        <el-menu-item index="2-3">item three</el-menu-item>
+      </el-submenu>
+    </el-menu>
+
+    <!-- SPEECH -->
+    <h1 class="center" id="headline">
+      <!-- <a href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html"> -->
+        Web Speech API</a> Demonstration</h1>
+    <div id="info">
+      <p id="info_start">Click on the microphone icon and begin speaking.</p>
+      <p id="info_speak_now">Speak now.</p>
+      <p id="info_no_speech">No speech was detected. You may need to adjust your
+        <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+          microphone settings</a>.</p>
+      <p id="info_no_microphone" style="display:none">
+        No microphone was found. Ensure that a microphone is installed and that
+        <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+        microphone settings</a> are configured correctly.</p>
+      <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+      <p id="info_denied">Permission to use microphone was denied.</p>
+      <p id="info_blocked">Permission to use microphone is blocked. To change,
+        go to chrome://settings/contentExceptions#media-stream</p>
+      <p id="info_upgrade">Web Speech API is not supported by this browser.
+         Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+         version 25 or later.</p>
+    </div>
+    <div class="right">
+      <button id="start_button" onclick="startButton(event)">
+        <img id="start_img" src="/img/mic.gif" alt="Start"></button>
+    </div>
+    <div id="results">
+      <span id="final_span" class="final"></span>
+      <span id="interim_span" class="interim"></span>
+      <p>
+    </div>
+    <div class="center">
+      <div class="sidebyside" style="text-align:right">
+        <button id="copy_button" class="button" onclick="copyButton()">
+          Copy and Paste</button>
+        <div id="copy_info" class="info">
+          Press Control-C to copy text.<br>(Command-C on Mac.)
+        </div>
+      </div>
+      <div class="sidebyside">
+        <button id="email_button" class="button" onclick="emailButton()">
+          Create Email</button>
+        <div id="email_info" class="info">
+          Text sent to default email application.<br>
+          (See chrome://settings/handlers to change.)
+        </div>
+      </div>
+      <p>
+      <div id="div_language">
+        <select id="select_language" onchange="updateCountry()"></select>
+
+        &nbsp;&nbsp;
+        <select id="select_dialect"></select>
+      </div>
+    </div>
+
+  </div>
+</body>
+  <!-- <script src="language.js" charset="utf-8"></script> -->
+
+
+
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="app.js" charset="utf-8"></script>
+  <!-- <script src="navbar.js" charset="utf-8"></script> -->
+
+  <script src="speech.js" charset="utf-8"></script>
+</html>
