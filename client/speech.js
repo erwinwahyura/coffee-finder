@@ -160,7 +160,9 @@ if (!('webkitSpeechRecognition' in window)) {
     }
     final_transcript = capitalize(final_transcript);
     final_span.innerHTML = linebreak(final_transcript);
-    document.getElementById('iniloh').value = final_transcript;
+    document.getElementById('mapinput').value = interim_transcript;
+    document.getElementById('mapinput').value = final_transcript;
+
     mapinput.innerHTML = linebreak(final_transcript);
     interim_span.innerHTML = linebreak(interim_transcript);
     // if (final_transcript || interim_transcript) {
