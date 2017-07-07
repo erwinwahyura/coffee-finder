@@ -116,15 +116,15 @@
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-      var infoWindow
+      var infoWindow, nodes, posNow
       function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
+          center: posNow,
           zoom: 13,
           mapTypeId: 'roadmap'
         });
         infoWindow = new google.maps.InfoWindow;
-        var posNow
+        // var posNow
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             posNow = {
@@ -132,15 +132,15 @@
               lng: position.coords.longitude
             };
 
-            var nodes = new google.maps.Marker({
-              map: map,
-              draggable: true,
-              animation: google.maps.Animation.DROP,
-              position: posNow,
-              title: 'your position'
-            })
+            // nodes = new google.maps.Marker({
+            //   map: map,
+            //   draggable: true,
+            //   animation: google.maps.Animation.DROP,
+            //   position: posNow,
+            //   title: 'your position'
+            // })
 
-            console.log(nodes.getPlace());
+            // console.log(nodes.getPlace());
 
             infoWindow.setPosition(posNow);
 
@@ -290,6 +290,7 @@
           if (mode === 'DEST') {
             me.destinationPlaceId = place.place_id;
             console.log('-----sini');
+            nodes = null
             me.route();
           } else {
             me.destinationPlaceId = place.place_id;
