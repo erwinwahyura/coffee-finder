@@ -41,7 +41,7 @@ Vue.component('speech', {
             <img id="start_img" src="img/mic.gif" alt="Start"></button>
         </div>
         <div id="results">
-          <span id="final_span" class="final"></span>
+          <span id="final_span" class="final"><input type="text"></span>
           <span id="interim_span" class="interim"></span>
           <p></p>
         </div>
@@ -64,7 +64,7 @@ Vue.component('speech', {
 Vue.component('map-result', {
   template: `
   <div class="map-result">
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <input id="mapinput" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
     <ul id="places"></ul>
   </div>

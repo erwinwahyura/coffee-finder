@@ -155,11 +155,13 @@ if (!('webkitSpeechRecognition' in window)) {
         console.log('ini final transcript : ', final_transcript);
       } else {
         interim_transcript += event.results[i][0].transcript;
-        console.log('ini interm', interim_transcript);
+        console.log('hai interm', interim_transcript);
       }
     }
     final_transcript = capitalize(final_transcript);
     final_span.innerHTML = linebreak(final_transcript);
+    document.getElementById('iniloh').value = final_transcript;
+    mapinput.innerHTML = linebreak(final_transcript);
     interim_span.innerHTML = linebreak(interim_transcript);
     // if (final_transcript || interim_transcript) {
     //   showButtons('inline-block');
