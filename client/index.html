@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <!-- import CSS -->
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="stylesheets/map.css">
   <!-- <script src="https://unpkg.com/vue@2.3.4"></script> -->
 </head>
 <body>
   <div id="app">
     <navbar></navbar>
     <br>
-    <speech></speech>
+    <speech :search="search"></speech>
 
     <map-result></map-result>
 
@@ -21,7 +22,6 @@
   <script src="map.js" charset="utf-8"></script>
 
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuV3IaOgrX8EGZY5ngqoFDXG6rcGZaWwQ&libraries=places&callback=initAutocomplete" async defer></script>
 
   <!-- import Vue before Element -->
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
@@ -34,4 +34,6 @@
 
   <script src="speech.js" charset="utf-8"></script>
   <script src="map.js" charset="utf-8"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuV3IaOgrX8EGZY5ngqoFDXG6rcGZaWwQ&libraries=places&callback=initAutocomplete" async defer></script>
+
 </html>

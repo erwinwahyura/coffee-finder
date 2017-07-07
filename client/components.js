@@ -1,3 +1,4 @@
+
 Vue.component('navbar', {
   data: function() {
     // return { visible: false },
@@ -27,16 +28,17 @@ Vue.component('navbar', {
 })
 
 Vue.component('speech', {
+  props: ['search'],
   template: `
   <div class="speech">
     <el-row>
       <el-col :span="8" :offset="8">
+      <input type="text" id="iniloh">
         <div id="info">
-
         </div>
         <div class="right">
           <button id="start_button" onclick="startButton(event)">
-            <img id="start_img" src="/img/mic.gif" alt="Start"></button>
+            <img id="start_img" src="img/mic.gif" alt="Start"></button>
         </div>
         <div id="results">
           <span id="final_span" class="final"></span>
