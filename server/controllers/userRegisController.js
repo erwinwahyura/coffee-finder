@@ -30,9 +30,9 @@ var userSignIn = (req,res) =>{
     console.log(data);
     if (bcrypt.compareSync(req.body.password, data.password)) {
       let token = jwt.sign({
-        id: record._id,
-        username: record.username,
-        email: record.email,
+        id: data._id,
+        username: data.username,
+        email: data.email,
     },'secret', { expiresIn: '1d'})
     console.log('token login: '+token);
     res.json({
@@ -73,7 +73,7 @@ var signInFB = (req,res)=>{
     data.email = req.body.email || data.email;
     data.username = req.body.username || data.username;
     data.password = req.body.password || data.password;
-    
+
     data.save((err,data) =>{
       if (err) {
         res.send(err)
@@ -90,4 +90,4 @@ module.exports = {
   userSignIn,
   signInFB,
   getAllUser
-}; 
+};

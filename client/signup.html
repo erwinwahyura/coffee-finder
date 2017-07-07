@@ -11,24 +11,13 @@
 </head>
 <body>
   <div id="app">
-    <!-- <div v-if="statusLogin">
-
-    </div> -->
-    <navbar :statuslogin="statuslogin"></navbar>
-
-    <!-- <navbar v-else></navbar> -->
-
+    <navbar></navbar>
     <br>
-    <speech :search="search"></speech>
 
-    <map-result></map-result>
+    <form-signup></form-signup>
 
   </div>
 </body>
-  <!-- <script src="language.js" charset="utf-8"></script> -->
-  <script src="map.js" charset="utf-8"></script>
-
-
 
   <!-- import Vue before Element -->
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
@@ -37,10 +26,4 @@
   <script src="components.js" charset="utf-8"></script>
 
   <script src="app.js" charset="utf-8"></script>
-  <!-- <script src="navbar.js" charset="utf-8"></script> -->
-
-  <script src="speech.js" charset="utf-8"></script>
-  <!-- <script src="map.js" charset="utf-8"></script> -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuV3IaOgrX8EGZY5ngqoFDXG6rcGZaWwQ&libraries=places&callback=initAutocomplete" async defer></script>
-
 </html>

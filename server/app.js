@@ -3,6 +3,7 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/coffeFinder');
 
+var cors = require('cors')
 const express = require('express'),
       path = require('path'),
       logger = require('morgan'),
@@ -15,6 +16,7 @@ const express = require('express'),
 
       //Express Instance
       app = express();
+      app.use(cors())
 
 //load environment variables with dotenv
 require('dotenv').config()
